@@ -61,7 +61,8 @@ class KeplerMapper(object):
         except:
           pass
         print("\n..Projecting data using: \n\t%s\n"%str(projection))
-      X = reducer.fit_transform(X)
+      if not isinstance(projection, list):
+        X = reducer.fit_transform(X)
     
     # Detect if projection is a string (for standard functions)
     if isinstance(projection, str):
